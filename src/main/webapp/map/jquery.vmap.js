@@ -11,34 +11,10 @@ var VectorCanvas = function (width, height, params) {
   this.mode = window.SVGAngle ? 'svg' : 'vml';
   this.params = params;
 
-  if (this.mode === 'svg') {
     this.createSvgNode = function (nodeName) {
       return document.createElementNS(this.svgns, nodeName);
     };
-  } else {
-    try {
-      if (!document.namespaces.rvml) {
-        document.namespaces.add('rvml', 'urn:schemas-microsoft-com:vml');
-      }
-      this.createVmlNode = function (tagName) {
-        return document.createElement('<rvml:' + tagName + ' class="rvml">');
-      };
-    } catch (e) {
-      this.createVmlNode = function (tagName) {
-        return document.createElement('<' + tagName + ' xmlns="urn:schemas-microsoft.com:vml" class="rvml">');
-      };
-    }
-
-    document.createStyleSheet().addRule('.rvml', 'behavior:url(#default#VML)');
-  }
-
-  if (this.mode === 'svg') {
     this.canvas = this.createSvgNode('svg');
-  } else {
-    this.canvas = this.createVmlNode('group');
-    this.canvas.style.position = 'absolute';
-  }
-
   this.setSize(width, height);
 };
 
@@ -119,7 +95,7 @@ var JQVMap = function (params) {
       }
     }
   });
-
+//TODO
   this.canvas = new VectorCanvas(this.width, this.height, params);
   params.container.append(this.canvas.canvas);
 
@@ -146,11 +122,9 @@ var JQVMap = function (params) {
     path.id = map.getCountryId(key);
     map.countries[key] = path;
 
-    if (this.canvas.mode === 'svg') {
+
       path.setAttribute('class', 'jvectormap-region');
-    } else {
-      jQuery(path).addClass('jvectormap-region');
-    }
+
 
     jQuery(this.rootGroup).append(path);
   }
@@ -165,8 +139,10 @@ var JQVMap = function (params) {
 
     if (e.type === 'mouseover') {
       jQuery(params.container).trigger(regionMouseOverEvent, [code, mapData.paths[code].name]);
+
       if (!regionMouseOverEvent.isDefaultPrevented()) {
         map.highlight(code, containerPath);
+
       }
       if (params.showTooltip) {
         map.label.text(mapData.paths[code].name);
@@ -201,6 +177,7 @@ var JQVMap = function (params) {
     code = code.toLowerCase();
 
     jQuery(params.container).trigger(mapClickEvent, [code, mapData.paths[code].name]);
+    alert(mapData.paths[code].name);
     if ( !mapClickEvent.isDefaultPrevented()) {
       if (map.isSelected(code)) {
         map.deselect(code, targetPath);
@@ -342,10 +319,10 @@ JQVMap.maps = {};
 
     var defaultParams = {
       map: 'world_en',
-      backgroundColor: '#a5bfdd',
-      color: '#f4f3f0',
-      hoverColor: '#c9dfaf',
-      selectedColor: '#c9dfaf',
+      backgroundColor: '#000000',
+      color: '#FFFFFF',
+      hoverColor: '#FFFFFF',
+      selectedColor: '#FFFFFF',
       scaleColors: ['#b6d6ff', '#005ace'],
       normalizeFunction: 'linear',
       enableZoom: true,
@@ -889,6 +866,7 @@ JQVMap.prototype.resize = function () {
 
 JQVMap.prototype.select = function (cc, path) {
   cc = cc.toLowerCase();
+
   path = path || jQuery('#' + this.getCountryId(cc))[0];
 
   if (!this.isSelected(cc)) {
