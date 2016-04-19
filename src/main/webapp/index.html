@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="GeoLearn">
     <title>Geo Learning</title>
-    <!--<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
-    <!--<script type="text/javascript" src="bower_components/angular/angular.js"></script>-->
-    <!--<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>-->
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+    <script type="text/javascript" src="map/countries/countries.js"></script>
     <script type="text/javascript" src="map/jquery.vmap.js"></script>
     <script type="text/javascript" src="map/maps/jquery.vmap.europe.js" charset="utf-8"></script>
     <script type="text/javascript" src="ng-app/app.js"></script>
@@ -34,8 +34,11 @@
 
     <!--</div>-->
 
-    <div id="vamap" style="width: 680px; height: 520px;"></div>
-
+    <div id="vamap" class="col-lg-8"  style="width: 680px; height: 520px;"></div>
+    <div id="data-container" class="col-lg-4">
+        <div class="col-lg-6" id="country-name"></div>
+        <div class="col-lg-6" id="country-flag"></div>
+    </div>
 
 
 </body>

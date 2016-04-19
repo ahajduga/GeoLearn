@@ -7,6 +7,21 @@
  * @builddate 2015/12/06
  */
 
+
+var currentCountry = "";
+var countryDataa = JSON.parse(countryData);
+var showCountryInfo = function () {
+  var countryNameContainer = document.getElementById("country-name");
+  countryNameContainer.innerHTML = countryDataa.Rosja.capital;
+  var image = document.createElement("img");
+  var imageParent = document.getElementById("country-flag");
+  image.src = "map/countries/Rosja/flag.png";            // image.src = "IMAGE URL/PATH"
+  imageParent.appendChild(image);
+
+
+
+
+};
 var VectorCanvas = function (width, height, params) {
   this.mode = window.SVGAngle ? 'svg' : 'vml';
   this.params = params;
@@ -130,36 +145,36 @@ var JQVMap = function (params) {
   }
 
   jQuery(params.container).delegate(this.canvas.mode === 'svg' ? 'path' : 'shape', 'mouseover mouseout', function (e) {
-    var containerPath = e.target,
-      code = e.target.id.split('_').pop(),
-      labelShowEvent = jQuery.Event('labelShow.jqvmap'),
-      regionMouseOverEvent = jQuery.Event('regionMouseOver.jqvmap');
-
-    code = code.toLowerCase();
-
-    if (e.type === 'mouseover') {
-      jQuery(params.container).trigger(regionMouseOverEvent, [code, mapData.paths[code].name]);
-
-      if (!regionMouseOverEvent.isDefaultPrevented()) {
-        map.highlight(code, containerPath);
-
-      }
-      if (params.showTooltip) {
-        map.label.text(mapData.paths[code].name);
-        jQuery(params.container).trigger(labelShowEvent, [map.label, code]);
-
-        if (!labelShowEvent.isDefaultPrevented()) {
-          map.label.show();
-          map.labelWidth = map.label.width();
-          map.labelHeight = map.label.height();
-        }
-      }
-    } else {
-      map.unhighlight(code, containerPath);
-
-      map.label.hide();
-      jQuery(params.container).trigger('regionMouseOut.jqvmap', [code, mapData.paths[code].name]);
-    }
+    //var containerPath = e.target,
+    //  code = e.target.id.split('_').pop(),
+    //  labelShowEvent = jQuery.Event('labelShow.jqvmap'),
+    //  regionMouseOverEvent = jQuery.Event('regionMouseOver.jqvmap');
+    //
+    //code = code.toLowerCase();
+    //
+    //if (e.type === 'mouseover') {
+    //  jQuery(params.container).trigger(regionMouseOverEvent, [code, mapData.paths[code].name]);
+    //
+    //  if (!regionMouseOverEvent.isDefaultPrevented()) {
+    //    map.highlight(code, containerPath);
+    //
+    //  }
+    //  if (params.showTooltip) {
+    //    map.label.text(mapData.paths[code].name);
+    //    jQuery(params.container).trigger(labelShowEvent, [map.label, code]);
+    //
+    //    if (!labelShowEvent.isDefaultPrevented()) {
+    //      map.label.show();
+    //      map.labelWidth = map.label.width();
+    //      map.labelHeight = map.label.height();
+    //    }
+    //  }
+    //} else {
+    //  map.unhighlight(code, containerPath);
+    //
+    //  map.label.hide();
+    //  jQuery(params.container).trigger('regionMouseOut.jqvmap', [code, mapData.paths[code].name]);
+    //}
   });
 
   jQuery(params.container).delegate(this.canvas.mode === 'svg' ? 'path' : 'shape', 'click', function (regionClickEvent) {
@@ -177,7 +192,9 @@ var JQVMap = function (params) {
     code = code.toLowerCase();
 
     jQuery(params.container).trigger(mapClickEvent, [code, mapData.paths[code].name]);
-    alert(mapData.paths[code].name);
+
+    currentCountry = mapData.paths[code].name;
+    showCountryInfo();
     if ( !mapClickEvent.isDefaultPrevented()) {
       if (map.isSelected(code)) {
         map.deselect(code, targetPath);
@@ -319,10 +336,10 @@ JQVMap.maps = {};
 
     var defaultParams = {
       map: 'world_en',
-      backgroundColor: '#000000',
+      backgroundColor: '#0080FF',
       color: '#FFFFFF',
       hoverColor: '#FFFFFF',
-      selectedColor: '#FFFFFF',
+      selectedColor: '#FF0000',
       scaleColors: ['#b6d6ff', '#005ace'],
       normalizeFunction: 'linear',
       enableZoom: true,
