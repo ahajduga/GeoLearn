@@ -1,0 +1,17 @@
+html {
+    background: url('global-bc.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#inner-container {
+    width: 420px; /*can be in percentage also.*/
+    height: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    background-color:white;
+
+}

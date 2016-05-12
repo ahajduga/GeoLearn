@@ -10,12 +10,17 @@
 
 var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
-var showCountryInfo = function () {
+var showCountryInfo = function (currCountry) {
   var countryNameContainer = document.getElementById("country-name");
-  countryNameContainer.innerHTML = countryDataa.Rosja.capital;
+  countryNameContainer.innerHTML = currCountry;
+    var capitalContainer = document.getElementById("country-capital");
+    capitalContainer.innerHTML = countryDataa[currCountry].capital;
   var image = document.createElement("img");
+  image.setAttribute("width", 100);
   var imageParent = document.getElementById("country-flag");
-  image.src = "map/countries/Rosja/flag.png";            // image.src = "IMAGE URL/PATH"
+  image.src = "map/countries/" + currCountry + "/flag.png";
+  if(imageParent.childNodes.length > 0)
+      imageParent.removeChild(imageParent.childNodes[0]);
   imageParent.appendChild(image);
 
 
@@ -194,7 +199,7 @@ var JQVMap = function (params) {
     jQuery(params.container).trigger(mapClickEvent, [code, mapData.paths[code].name]);
 
     currentCountry = mapData.paths[code].name;
-    showCountryInfo();
+    showCountryInfo(currentCountry);
     if ( !mapClickEvent.isDefaultPrevented()) {
       if (map.isSelected(code)) {
         map.deselect(code, targetPath);
