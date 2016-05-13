@@ -1,0 +1,67 @@
+<countries>
+    <country>
+        <name>Polska</name>
+        <capital>Warszawa</capital>
+        <currency>Złoty</currency>
+    </country>
+    <country>
+        <name>Niemcy</name>
+        <capital>Berlin</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Rosja</name>
+        <capital>Moskwa</capital>
+        <currency>Rubel rosyjski</currency>
+    </country>
+    <country>
+        <name>Austria</name>
+        <capital>Wiedeń</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Belgia</name>
+        <capital>Bruksela</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Bułgaria</name>
+        <capital>Sofia</capital>
+        <currency>lew bułgarski</currency>
+    </country>
+    <country>
+        <name>Chorwacja</name>
+        <capital>Zagrzeb</capital>
+        <currency>kuna chorwacka</currency>
+    </country>
+    <country>
+        <name>Cypr</name>
+        <capital>Nikozja</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Rosja</name>
+        <capital>Moskwa</capital>
+        <currency>Rubel rosyjski</currency>
+    </country>
+    <country>
+        <name>Czechy</name>
+        <capital>Praga</capital>
+        <currency>korona czeska</currency>
+    </country>
+    <country>
+        <name>Dania</name>
+        <capital>Kopenhaga</capital>
+        <currency>korona duńska</currency>
+    </country>
+    <country>
+        <name>Estonia</name>
+        <capital>Tallin</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Finlandia</name>
+        <capital>Helsinki</capital>
+        <currency>euro</currency>
+    </country>
+</countries>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="ng-app/TestController.js"></script>
+    <script type="text/javascript" src="map/countries/countries.js"></script>
+</head>
+<body>
+
+<button id="start_button" onclick="startTest()">Start testu</button>
+
+<div id="country"></div>
+<div id="question"></div>
+
+<form id="q_form" hidden="true">
+    <input type="radio" id="opt1r" name="radAnswer"> <span id="opt1"></span>
+    <input type="radio" id="opt2r" name="radAnswer"> <span id="opt2"></span>
+    <input type="radio" id="opt3r" name="radAnswer"> <span id="opt3"></span>
+</form>
+
+<button id="next_button" onclick="submitAnswer()" hidden="true">Dalej</button>
+
+<div id="summary" hidden="true"></div>
+
+</body>
+</html>
