@@ -27,18 +27,58 @@
 </head>
 
 <body>
-<div class="col-lg-12 container" style="opacity:0.9;background: linear-gradient(black,white, black);margin-top:50px">
+<div class="container-fluid col-lg-12"
+     style="background:linear-gradient(grey,white,grey,white, grey);opacity:0.9;margin-top:50px;margin-bottom:50px">
+    <div class="row" style="height:560px">
+        <div id="vamap" class="col-xs-7" style="height:560px;border:black solid 3px"></div>
+        <div class="col-xs-5" style="height:560px;border:black solid 3px">
 
-    <div id="vamap" class="col-lg-8" style="width: 740px; height: 520px;"></div>
-    <div id="data-container" class="col-lg-4">
-        <div id="inner-container">
-            <div class="col-lg-6" id="country-name"></div>
+            <div>
+            <div class="col-lg-6">
+                <span style="font-size:70px;font-family:Impact, Charcoal, sans-serif" id="country-name"></span>
+            </div>
             <div class="col-lg-6" id="country-flag"></div>
-            <div class="col-lg-4" id="country-capital"></div>
-        </div>
-    </div>
+            </div>
+            <div class="col-lg-12" style="font-size:30px;font-family:Impact, Charcoal, sans-serif"id="country-capital"></div>
+            <div class="col-lg-12" style="font-size:30px;font-family:Impact, Charcoal, sans-serif"id="country-currency"></div>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td id="country-photo1"></td>
+                    <td id="country-photo2"></td>
 
+                </tr>
+                <tr>
+                    <td id="country-photo3"></td>
+                    <td id="country-photo4"></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--<div class="col-lg-8"style="border:black solid 3px" >Map</div>-->
+        <!--<div class="col-lg-4"style="border:black solid 3px">Informations</div>-->
+    </div>
 </div>
+
+
+</body>
+
+<!--<div id="vamap" class="col-lg-8 container" style="width: 740px; height: 520px;"></div>-->
+<!--<div id="data-container" class="col-lg-4" style="height:520px;background-color:red">-->
+<!--<div class="col-lg-12 container" style="height:520px;background-color:red;opacity:0.9;margin-top:50px">-->
+<!--&lt;!&ndash;style="border-radius: 25px;opacity:0.9;background: linear-gradient(black,white, black);margin-top:50px">&ndash;&gt;-->
+
+<!--<div id="vamap" class="col-lg-8" style="width: 740px; height: 520px;"></div>-->
+<!--<div id="data-container" class="col-lg-4">-->
+<!--<div class="center-block">-->
+<!--<div class="col-lg-6" id="country-name"></div>-->
+<!--<div class="col-lg-6" id="country-flag"></div>-->
+<!--<div class="col-lg-4" id="country-capital"></div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</div>-->
 
 <!--<div ng-controller="MapController" ng-init="loadImage()">-->
 <!--<canvas width="800px" height="400px" id="mapCanvas">-->
@@ -46,9 +86,6 @@
 <!--</canvas>-->
 
 <!--</div>-->
-
-
-</body>
 
 
 </html>
