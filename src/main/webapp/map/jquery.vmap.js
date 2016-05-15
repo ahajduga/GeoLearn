@@ -14,18 +14,52 @@ var showCountryInfo = function (currCountry) {
   var countryNameContainer = document.getElementById("country-name");
   countryNameContainer.innerHTML = currCountry;
     var capitalContainer = document.getElementById("country-capital");
-    capitalContainer.innerHTML = countryDataa[currCountry].capital;
+    capitalContainer.innerHTML = "Stolica: " + countryDataa[currCountry].capital;
+  var currencyContainer = document.getElementById("country-currency");
+  currencyContainer.innerHTML = "Waluta: " + countryDataa[currCountry].currency;
   var image = document.createElement("img");
-  image.setAttribute("width", 100);
+  image.setAttribute("width", "100%");
   var imageParent = document.getElementById("country-flag");
   image.src = "map/countries/" + currCountry + "/flag.png";
   if(imageParent.childNodes.length > 0)
       imageParent.removeChild(imageParent.childNodes[0]);
   imageParent.appendChild(image);
 
+  var image = document.createElement("img");
+  image.setAttribute("width", "200px");
+  var imageParent = document.getElementById("country-photo1");
+  image.setAttribute("title", countryDataa[currCountry].photos.photo1);
+  image.src = "map/countries/" + currCountry + "/photo1.jpg";
+  if(imageParent.childNodes.length > 0)
+    imageParent.removeChild(imageParent.childNodes[0]);
+  imageParent.appendChild(image);
 
+  var image = document.createElement("img");
+  image.setAttribute("width", "200px");
+  var imageParent = document.getElementById("country-photo2");
+  image.setAttribute("title", countryDataa[currCountry].photos.photo2);
+  image.src = "map/countries/" + currCountry + "/photo2.jpg";
+  if(imageParent.childNodes.length > 0)
+    imageParent.removeChild(imageParent.childNodes[0]);
+  imageParent.appendChild(image);
 
+  var image = document.createElement("img");
+  image.setAttribute("width", "200px");
+  image.setAttribute("title", countryDataa[currCountry].photos.photo3);
+  var imageParent = document.getElementById("country-photo3");
+  image.src = "map/countries/" + currCountry + "/photo3.jpg";
+  if(imageParent.childNodes.length > 0)
+    imageParent.removeChild(imageParent.childNodes[0]);
+  imageParent.appendChild(image);
 
+  var image = document.createElement("img");
+  image.setAttribute("width", "200px");
+  var imageParent = document.getElementById("country-photo4");
+  image.setAttribute("title", countryDataa[currCountry].photos.photo4);
+  image.src = "map/countries/" + currCountry + "/photo4.jpg";
+  if(imageParent.childNodes.length > 0)
+    imageParent.removeChild(imageParent.childNodes[0]);
+  imageParent.appendChild(image);
 };
 var VectorCanvas = function (width, height, params) {
   this.mode = window.SVGAngle ? 'svg' : 'vml';
