@@ -12,20 +12,23 @@ var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
 var showCountryInfo = function (currCountry) {
   //
-  // var countryNameContainer = document.getElementById("country-name");
-  // countryNameContainer.innerHTML = currCountry;
-  //   var capitalContainer = document.getElementById("country-capital");
-  //   capitalContainer.innerHTML = "Stolica: " + countryDataa[currCountry].capital;
-  // var currencyContainer = document.getElementById("country-currency");
-  // currencyContainer.innerHTML = "Waluta: " + countryDataa[currCountry].currency;
-  // var image = document.createElement("img");
-  // image.setAttribute("width", "100%");
-  // var imageParent = document.getElementById("country-flag");
-  // image.src = "map/countries/" + currCountry + "/flag.png";
-  // if(imageParent.childNodes.length > 0)
-  //     imageParent.removeChild(imageParent.childNodes[0]);
-  // imageParent.appendChild(image);
+  var countryNameContainer = document.getElementById("country-name");
+  countryNameContainer.innerHTML = currCountry;
+    var capitalContainer = document.getElementById("country-capital");
+    capitalContainer.innerHTML = "Stolica: " + countryDataa[currCountry].capital;
+  var currencyContainer = document.getElementById("country-currency");
+  currencyContainer.innerHTML = "Waluta: " + countryDataa[currCountry].currency;
+   var image = document.createElement("img");
+   image.setAttribute("width", "900%");
+   var imageParent = document.getElementById("country-flag");
+   image.src = "map/countries/" + currCountry + "/flag.png";
+   if(imageParent.childNodes.length > 0)
+       imageParent.removeChild(imageParent.childNodes[0]);
+   imageParent.appendChild(image);
 
+  var captionDiv = document.createElement("div");
+  captionDiv.className += " carousel-caption";
+  captionDiv.innerHTML = "<h4>" + countryDataa[currCountry].photos.photo1 + "</h4>";
   var image = document.createElement("img");
   image.setAttribute("width", "200px");
   var imageParent = document.getElementById("country-photo1");
@@ -36,7 +39,10 @@ var showCountryInfo = function (currCountry) {
     for(var i=0;i<imageParent.childNodes.length+1;i++)
       imageParent.removeChild(imageParent.childNodes[i]);
   imageParent.appendChild(image);
-
+  imageParent.appendChild(captionDiv);
+  var captionDiv = document.createElement("div");
+  captionDiv.className += " carousel-caption";
+  captionDiv.innerHTML = "<h4>" + countryDataa[currCountry].photos.photo2 + "</h4>";
   var image = document.createElement("img");
   image.className += " center-block";
   image.setAttribute("width", "200px");
@@ -47,7 +53,10 @@ var showCountryInfo = function (currCountry) {
   for(var i=0;i<imageParent.childNodes.length+1;i++)
     imageParent.removeChild(imageParent.childNodes[i]);
   imageParent.appendChild(image);
-
+  imageParent.appendChild(captionDiv);
+  var captionDiv = document.createElement("div");
+  captionDiv.className += " carousel-caption";
+  captionDiv.innerHTML = "<h4>" + countryDataa[currCountry].photos.photo3 + "</h4>";
   var image = document.createElement("img");
   image.className += " center-block";
   image.setAttribute("width", "200px");
@@ -59,7 +68,10 @@ var showCountryInfo = function (currCountry) {
     imageParent.removeChild(imageParent.childNodes[i]);
 
   imageParent.appendChild(image);
-
+  imageParent.appendChild(captionDiv);
+  var captionDiv = document.createElement("div");
+  captionDiv.className += " carousel-caption";
+  captionDiv.innerHTML = "<h4>" + countryDataa[currCountry].photos.photo4 + "</h4>";
   var image = document.createElement("img");
   image.className += " center-block";
   image.setAttribute("width", "200px");
@@ -69,6 +81,7 @@ var showCountryInfo = function (currCountry) {
   for(var i=0;i<imageParent.childNodes.length+1;i++)
     imageParent.removeChild(imageParent.childNodes[i]);
   imageParent.appendChild(image);
+  imageParent.appendChild(captionDiv);
 };
 var VectorCanvas = function (width, height, params) {
   this.mode = window.SVGAngle ? 'svg' : 'vml';
