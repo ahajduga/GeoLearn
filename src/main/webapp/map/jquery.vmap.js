@@ -13,15 +13,9 @@ var answerResult;
 var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
 
-var checkAnswer = function(selectedAnswer) {
-  if(selectedAnswer === correctAnswer){
-    answerResult = true;
-    return true;
-  } else {
-    answerResult = false;
-    return false;
-  }
-}
+
+
+
 var showCountryInfo = function (currCountry) {
 
   var countryNameContainer = document.getElementById("country-name");
@@ -179,6 +173,14 @@ var JQVMap = function (params) {
 
   this.resize();
 
+  var checkAnswer = function(selectedAnswer) {
+
+
+  }
+  var selectCountry = function(countryShort) {
+    map.countries[countryShort].currentFillColor = this.hoverColor;
+    map.countries[countryShort].setFill(this.hoverColor);
+  }
   jQuery(window).resize(function () {
     var newWidth = params.container.width();
     var newHeight = params.container.height();
