@@ -6,14 +6,14 @@
     <title>Geo Learning</title>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="Stylesheet" type="text/css" href="http://kursbootstrap.pl/examples/docs.css"/>
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="general2.css"/>
     <!--<link rel="stylesheet" type="text/css" href="general.css"/>-->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script type="text/javascript" src="map/countries/countries.js"></script>
     <script type="text/javascript" src="map/jquery.vmap.js"></script>
     <script type="text/javascript" src="map/maps/jquery.vmap.europe.js" charset="utf-8"></script>
@@ -57,14 +57,14 @@
 <div class="container">
 
     <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron" style="height:650px">
+    <div class="jumbotron" style="height:750px">
         <div class="container">
             <div class="row">
                 <div id="vamap" class="col-lg-6"
                      style="background-color:blue;height:350px;border:2px solid blue;border-radius:30px"></div>
                 <div class="col-lg-6">
                     <div class="row">
-                        <div id="country-name" class="pull-left myFont1" style="margin-top:50px"></div>
+                        <div id="country-name" class="pull-left myFont1"></div>
                         <div id="country-flag" class="pull-right" style="margin-right:100px"></div>
                     </div>
 
@@ -72,13 +72,10 @@
                     <div class="col-lg-6">
                         <div id="country-capital" class="row myFont2"></div>
                         <div id="country-currency" class="row myFont2"></div>
+
                     </div>
-                        <div class="col-lg-6">
-                        <ul class="list-group"></ul>
-                            <li class="list-group-item">First item</li>
-                            <li class="list-group-item">Second item</li>
-                            <li class="list-group-item">Third item</li>
-                        </div>
+                        <div id="country-facts" class="col-lg-6 myFont2">
+
                     </div>
                     <!--<div class="row" style="margin-top:50px">-->
                     <!--<div id="country-capital" class="myFont2"></div>-->
@@ -89,8 +86,8 @@
                         <!--</div>-->
                 </div>
             </div>
-            <div class="row " style="margin-top:100px">
-                <div id="carousel-example-generic" class=" col-lg-6 col-lg-offset-3 carousel slide">
+            <div class="row " >
+                <div id="carousel-example-generic" class=" col-lg-6 col-lg-offset-3 carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators  ">
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -111,12 +108,7 @@
                             <!--<img src="./map/countries/Rosja/photo2.jpg" style="align:center" width="200" height="100" alt="">-->
                         </div>
                     </div>
-                    <a class="left carousel-control" href="#carousel-example-generic2" data-slide="prev">
-                        <span class="icon-prev"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic2" data-slide="next">
-                        <span class="icon-next"></span>
-                    </a>
+
                 </div>
             </div>
 

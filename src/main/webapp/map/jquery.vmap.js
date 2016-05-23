@@ -11,9 +11,26 @@
 var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
 var showCountryInfo = function (currCountry) {
-  //
+
   var countryNameContainer = document.getElementById("country-name");
   countryNameContainer.innerHTML = currCountry;
+
+  var factsContainer = document.getElementById("country-facts");
+  for(var i=0;i<factsContainer.childNodes.length;i++)
+    factsContainer.removeChild(factsContainer.childNodes[i]);
+  factsContainer.innerHTML = "Ciekawostki";
+  var list = document.createElement("ul");
+  list.className += " list-group";
+
+  var facts = countryDataa[currCountry].facts;
+  for(var i=0;i<facts.length;i++){
+    var li = document.createElement("li");
+    li.className+= " list-group-item myFont3";
+    li.innerHTML = facts[i];
+    list.appendChild(li);
+  }
+  factsContainer.appendChild(list);
+
     var capitalContainer = document.getElementById("country-capital");
     capitalContainer.innerHTML = "Stolica: " + countryDataa[currCountry].capital;
   var currencyContainer = document.getElementById("country-currency");
