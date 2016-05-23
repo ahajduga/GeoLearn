@@ -9,13 +9,18 @@
 
 var learning = true;
 var correctAnswer = "";
+var answerResult;
 var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
 
 var checkAnswer = function(selectedAnswer) {
-  if(selectedAnswer === correctAnswer)
-      return true;
-  else return false;
+  if(selectedAnswer === correctAnswer){
+    answerResult = true;
+    return true;
+  } else {
+    answerResult = false;
+    return false;
+  }
 }
 var showCountryInfo = function (currCountry) {
 
