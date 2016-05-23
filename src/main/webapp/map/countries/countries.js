@@ -1,4 +1,9 @@
 var countryData = '{"Rosja" : {"capital" : "Moskwa", "currency" : "Rubel rosyjski", "photos" : {"photo1" : "Ermitaż - Sankt Petersburg", ' +
     '"photo2": "Plac czerwony - Moskwa", "photo3" : "Kreml - Moskwa", "photo4" : "Stadion Luzhniki - Moskwa"}, "facts" : ["Rosja zajmuje większą powierzchnię niż Pluton, jednak swój większościowy udział ma Syberia (77%).","Rosja sprzedała Alaskę Amerykanom w 1867 roku za 7.2 mln. dolarów amerykańskich.","Jezioro Bajkał jest źródłem około 20% pitnej wody na świecie."]},' +
-    '"Polska" : {"capital" : "Warszawa", "currency" : "Złoty"}' +
+    '"Polska" : {"capital" : "Warszawa", "currency" : "Złoty",  "photos" : {"photo1" : "Zamek w Malborku", ' +
+    '"photo2": "Kopalnia soli - Wieliczka", "photo3" : "Auschwitz-Birkenau - Oświęcim", "photo4" : "Jasna Góra - Częstochowa"}, "facts" : ["Polska jest najczęściej atakowanym (po Jerozolimie) obszarem w historii. Tylko między 1600 a 1945 rokiem została zaatakowana 43 razy.","We Wrocławiu znajduje się najstarsza restauracja w Europie - Piwnica Świdnicka (1275r.)."]},' +
+    '"Finlandia" : {"capital" : "Helsinki", "currency" : "Euro",  "photos" : {"photo1" : "Hämeenlinna", ' +
+    '"photo2": "Pomnik Sibeliusa - Helsinki", "photo3" : "Stadion Olimpijski - Helsinki", "photo4" : "Wioska Świętego Mikołaja - Rovaniemi"}, "facts" : ["Finlandia cechuje się najmniejszą gęstością zaludnienia w Europie (18 osób/km^2).","W czerwcu i lipcu na północy Finlandii słońce świeci cały dzień i całą noc nie znikając za horyzontem."]},' +
+    '"Hiszpania" : {"capital" : "Madryt", "currency" : "Euro",  "photos" : {"photo1" : "Pałac Królewski - Madryt", ' +
+    '"photo2": "Sagrada Família - Barcelona", "photo3" : "San Sebastian", "photo4" : "Zamek Escorial - San Lorenzo el Escorial"}, "facts" : ["Najstarsza latarnia morska na świecie znajduje się w Herkules, zbudowana w I wieku naszej ery.","W czerwcu i lipcu na północy Finlandii słońce świeci cały dzień i całą noc nie znikając za horyzontem."]}' +
     '}';

@@ -36,7 +36,7 @@ var showCountryInfo = function (currCountry) {
   var currencyContainer = document.getElementById("country-currency");
   currencyContainer.innerHTML = "Waluta: " + countryDataa[currCountry].currency;
    var image = document.createElement("img");
-   image.setAttribute("width", "900%");
+   image.setAttribute("width", "200px");
    var imageParent = document.getElementById("country-flag");
    image.src = "map/countries/" + currCountry + "/flag.png";
    if(imageParent.childNodes.length > 0)
