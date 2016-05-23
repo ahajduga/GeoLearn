@@ -29,6 +29,8 @@ function startTest(){
     document.getElementById("country").hidden = false;
     document.getElementById("question").hidden = false;
     document.getElementById("start_button").hidden = true;
+    document.getElementById("flag").hidden = true;
+    document.getElementById("photo").hidden = true;
     document.getElementById("summary").hidden = true;
     document.getElementById("opt1r").checked = false;
     document.getElementById("opt2r").checked = false;
@@ -45,7 +47,7 @@ function submitAnswer(){
         if (document.getElementById("opt" + rand_opt + "r").checked) {
             points = points + 1;
         }
-    } else if(question == "flag") {
+    } else if(question == "flag" || question == "photo") {
         if(answerResult){
             points = points + 1;
         }
@@ -58,6 +60,7 @@ function submitAnswer(){
         document.getElementById("country").hidden = true;
         document.getElementById("question").hidden = true;
         document.getElementById("flag").hidden = true;
+        document.getElementById("photo").hidden = true;
         document.getElementById("start_button").hidden = false;
         document.getElementById("summary").hidden = false;
         document.getElementById("summary").innerHTML = "Koniec testu!</br>Twój wynik: " + points + " / " + q_count;
@@ -80,7 +83,7 @@ function getQuestion(){
     var currency = country.getElementsByTagName("currency")[0].textContent.toString();
     document.getElementById("country").innerHTML = "Kraj: " + name;
 
-    var rand_question = Math.floor(Math.random() * 3);
+    var rand_question = Math.floor(Math.random() * 4);
     question = null;
     var q_label = null;
 
@@ -89,7 +92,10 @@ function getQuestion(){
         q_label  = "Jaka jest stolica tego kraju?"
     } else if(rand_question==2){
         question = "flag";
-        q_label  = "Wskaż na mapie kraj pasujący do przedstawionej flagi."
+        q_label  = "Wskaż na mapie kraj pasujący do przedstawionej flagi:"
+    } else if(rand_question==3){
+        question = "photo";
+        q_label  = "Wskaż na mapie kraj pasujący do poniższej fotografii:"
     } else {
         question = "currency";
         q_label  = "Jaka jest waluta tego kraju?"
@@ -102,6 +108,7 @@ function getQuestion(){
         document.getElementById("country").hidden = false;
         document.getElementById("q_form").hidden = false;
         document.getElementById("flag").hidden = true;
+        document.getElementById("photo").hidden = true;
 
         rand_country = Math.floor(Math.random() * c_count);
         document.getElementById("opt1").innerHTML
@@ -123,8 +130,20 @@ function getQuestion(){
 
         document.getElementById("country").hidden = true;
         document.getElementById("q_form").hidden = true;
+        document.getElementById("photo").hidden = true;
         document.getElementById("flag").hidden = false;
 
         document.getElementById("flag_country").setAttribute("class", "phoca-flag " + name);
+    } else if(question == "photo"){
+
+        correctAnswer = name;
+
+        document.getElementById("country").hidden = true;
+        document.getElementById("q_form").hidden = true;
+        document.getElementById("flag").hidden = true;
+        document.getElementById("photo").hidden = false;
+
+        var rand_photo = Math.floor((Math.random() * 4) + 1);
+        document.getElementById("photo").setAttribute("src", "map/countries/" + name + "/photo" + rand_photo + ".jpg");
     }
 }
