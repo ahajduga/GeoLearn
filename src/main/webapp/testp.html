@@ -38,7 +38,7 @@
 
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ecffb3;">
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #cce5ff;">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -48,7 +48,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">GeoLearning</a>
+            <a class="navbar-brand" href="#">
+                <span><img id="logo" src="resources/logo.png" style="max-width:20px;max-height:20px"> GeoLearning</span>
+            </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -62,7 +64,7 @@
 <div class="container">
 
     <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron" style="height:650px;background-color: #f9ffe6;">
+    <div class="jumbotron" style="height:650px;background-color: #e5f9ff;">
         <div class="container">
             <div class="row">
                 <div id="vamap" class="col-lg-6"
@@ -75,26 +77,35 @@
 
                     <button id="next_button" onclick="submitAnswer()" hidden="true">Dalej</button>
 
-                    <div id="country"></div>
-                    <div id="question"></div>
+                    <div id="q_box" class="panel panel-primary" style="width:441px;height:304px" hidden="true">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <div id="country"></div>
 
-                    <form id="q_form" hidden="true">
+                            </h3>
+                        </div>
+                        <div class="panel-body">
 
-                        <input type="radio" id="opt1r" name="radAnswer"> <span id="opt1"></span>
-                        <input type="radio" id="opt2r" name="radAnswer"> <span id="opt2"></span>
-                        <input type="radio" id="opt3r" name="radAnswer"> <span id="opt3"></span>
+                            <div id="question"></div>
+                            <form id="q_form" hidden="true">
 
-                    </form>
+                                <input type="radio" id="opt1r" name="radAnswer"> <span id="opt1"></span>
+                                <input type="radio" id="opt2r" name="radAnswer"> <span id="opt2"></span>
+                                <input type="radio" id="opt3r" name="radAnswer"> <span id="opt3"></span>
 
-                    <div id="flag" class="phoca-box" hidden="true">
-                        <div class="phoca-flagbox">
-                            <span id="flag_country" class="phoca-flag ad"></span>
+                            </form>
+
+                            <div id="flag" class="phoca-box" hidden="true">
+                                <div class="phoca-flagbox">
+                                    <span id="flag_country" class="phoca-flag ad"></span>
+                                </div>
+                            </div>
+
+                            <img id="photo" src="" style="max-width:300px;max-height:180px" hidden="true">
+
+                            <div id="summary" hidden="true"></div>
                         </div>
                     </div>
-
-                    <img id="photo" src="" style="max-width:300px;max-height:300px" hidden="true">
-
-                    <div id="summary" hidden="true"></div>
                 </div>
             </div>
         </div>

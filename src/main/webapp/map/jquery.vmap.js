@@ -432,7 +432,7 @@ JQVMap.maps = {};
 
     var defaultParams = {
       map: 'world_en',
-      backgroundColor: '#0080FF',
+      backgroundColor: '#227ab4',
       color: '#FFFFFF',
       hoverColor: '#FFFFFF',
       selectedColor: '#FF0000',

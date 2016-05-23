@@ -24,6 +24,7 @@ function startTest(){
     points = 0;
     q_number = 0;
 
+    document.getElementById("q_box").hidden = false;
     document.getElementById("q_form").hidden = false;
     document.getElementById("next_button").hidden = false;
     document.getElementById("country").hidden = false;
@@ -57,13 +58,13 @@ function submitAnswer(){
 
         document.getElementById("q_form").hidden = true;
         document.getElementById("next_button").hidden = true;
-        document.getElementById("country").hidden = true;
         document.getElementById("question").hidden = true;
         document.getElementById("flag").hidden = true;
         document.getElementById("photo").hidden = true;
         document.getElementById("start_button").hidden = false;
         document.getElementById("summary").hidden = false;
         document.getElementById("summary").innerHTML = "Koniec testu!</br>Twój wynik: " + points + " / " + q_count;
+        document.getElementById("country").innerHTML = "Podsumowanie";
 
     } else {
 
@@ -92,10 +93,10 @@ function getQuestion(){
         q_label  = "Jaka jest stolica tego kraju?"
     } else if(rand_question==2){
         question = "flag";
-        q_label  = "Wskaż na mapie kraj pasujący do przedstawionej flagi:"
+        q_label  = "Wskaż na mapie kraj posiadający flagę:"
     } else if(rand_question==3){
         question = "photo";
-        q_label  = "Wskaż na mapie kraj pasujący do poniższej fotografii:"
+        q_label  = "Wskaż na mapie kraj z poniższej fotografii:"
     } else {
         question = "currency";
         q_label  = "Jaka jest waluta tego kraju?"
@@ -128,7 +129,7 @@ function getQuestion(){
 
         correctAnswer = name;
 
-        document.getElementById("country").hidden = true;
+        document.getElementById("country").innerHTML = "Flaga";
         document.getElementById("q_form").hidden = true;
         document.getElementById("photo").hidden = true;
         document.getElementById("flag").hidden = false;
@@ -138,7 +139,7 @@ function getQuestion(){
 
         correctAnswer = name;
 
-        document.getElementById("country").hidden = true;
+        document.getElementById("country").innerHTML = "Fotografia";
         document.getElementById("q_form").hidden = true;
         document.getElementById("flag").hidden = true;
         document.getElementById("photo").hidden = false;
