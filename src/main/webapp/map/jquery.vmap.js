@@ -7,9 +7,16 @@
  * @builddate 2015/12/06
  */
 
-
+var learning = true;
+var correctAnswer = "";
 var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
+
+var checkAnswer = function(selectedAnswer) {
+  if(selectedAnswer === correctAnswer)
+      return true;
+  else return false;
+}
 var showCountryInfo = function (currCountry) {
 
   var countryNameContainer = document.getElementById("country-name");
@@ -272,7 +279,11 @@ var JQVMap = function (params) {
     jQuery(params.container).trigger(mapClickEvent, [code, mapData.paths[code].name]);
 
     currentCountry = mapData.paths[code].name;
+    if(learning === true)
     showCountryInfo(currentCountry);
+    else{
+      checkAnswer(currentCountry);
+    }
     if ( !mapClickEvent.isDefaultPrevented()) {
       if (map.isSelected(code)) {
         map.deselect(code, targetPath);
