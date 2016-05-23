@@ -9,6 +9,7 @@
 
 var learning = true;
 var correctAnswer = "";
+var answerResult;
 var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
 

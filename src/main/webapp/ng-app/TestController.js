@@ -1,10 +1,11 @@
 var points = null;
 var q_count = 5;
 var q_number = null;
+var question;
 var rand_opt = null;
 
 var countries = null;
-var c_count = null
+var c_count = null;
 
 function readData(){
     var Connect = new XMLHttpRequest();
@@ -40,8 +41,14 @@ function submitAnswer(){
 
     q_number = q_number + 1;
 
-    if (document.getElementById("opt" + rand_opt + "r").checked) {
-        points = points + 1;
+    if(question == "capital" || question == "currency") {
+        if (document.getElementById("opt" + rand_opt + "r").checked) {
+            points = points + 1;
+        }
+    } else if(question == "flag") {
+        if(answerResult){
+            points = points + 1;
+        }
     }
 
     if(q_number==q_count){
@@ -50,6 +57,7 @@ function submitAnswer(){
         document.getElementById("next_button").hidden = true;
         document.getElementById("country").hidden = true;
         document.getElementById("question").hidden = true;
+        document.getElementById("flag").hidden = true;
         document.getElementById("start_button").hidden = false;
         document.getElementById("summary").hidden = false;
         document.getElementById("summary").innerHTML = "Koniec testu!</br>Twój wynik: " + points + " / " + q_count;
@@ -72,13 +80,16 @@ function getQuestion(){
     var currency = country.getElementsByTagName("currency")[0].textContent.toString();
     document.getElementById("country").innerHTML = "Kraj: " + name;
 
-    var rand_question = Math.floor(Math.random() * 2);
-    var question = null;
+    var rand_question = Math.floor(Math.random() * 3);
+    question = null;
     var q_label = null;
 
     if(rand_question==1){
         question = "capital";
         q_label  = "Jaka jest stolica tego kraju?"
+    } else if(rand_question==2){
+        question = "flag";
+        q_label  = "Wskaż na mapie kraj pasujący do przedstawionej flagi."
     } else {
         question = "currency";
         q_label  = "Jaka jest waluta tego kraju?"
@@ -86,17 +97,34 @@ function getQuestion(){
 
     document.getElementById("question").innerHTML = q_label;
 
-    rand_country = Math.floor(Math.random() * c_count);
-    document.getElementById("opt1").innerHTML
-        = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
-    rand_country = Math.floor(Math.random() * c_count);
-    document.getElementById("opt2").innerHTML
-        = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
-    rand_country = Math.floor(Math.random() * c_count);
-    document.getElementById("opt3").innerHTML
-        = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+    if(question == "capital" || question == "currency"){
 
-    rand_opt = Math.floor((Math.random() * 3) + 1);
-    document.getElementById("opt" + rand_opt).innerHTML
-        = country.getElementsByTagName(question)[0].textContent.toString();
+        document.getElementById("country").hidden = false;
+        document.getElementById("q_form").hidden = false;
+        document.getElementById("flag").hidden = true;
+
+        rand_country = Math.floor(Math.random() * c_count);
+        document.getElementById("opt1").innerHTML
+            = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+        rand_country = Math.floor(Math.random() * c_count);
+        document.getElementById("opt2").innerHTML
+            = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+        rand_country = Math.floor(Math.random() * c_count);
+        document.getElementById("opt3").innerHTML
+            = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+
+        rand_opt = Math.floor((Math.random() * 3) + 1);
+        document.getElementById("opt" + rand_opt).innerHTML
+            = country.getElementsByTagName(question)[0].textContent.toString();
+
+    } else if(question == "flag"){
+
+        correctAnswer = name;
+
+        document.getElementById("country").hidden = true;
+        document.getElementById("q_form").hidden = true;
+        document.getElementById("flag").hidden = false;
+
+        document.getElementById("flag_country").setAttribute("class", "phoca-flag " + name);
+    }
 }
