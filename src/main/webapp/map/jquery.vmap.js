@@ -182,11 +182,14 @@ var JQVMap = function (params) {
   var getAcronym = function(fullCountryName) {
     for (var key in mapData.paths) {
       if(mapData.paths[key].name === fullCountryName)
-      console.log(key);
+        return key;
     }
 
+
   }
-  var selectCountry = function(countryShort) {
+  var selectCountry = function(countryName) {
+    var countryShort = getAcronym(countryName);
+    console.log(countryShort);
     map.countries[countryShort].currentFillColor = this.hoverColor;
     map.countries[countryShort].setFill(this.hoverColor);
   }
@@ -281,7 +284,7 @@ var JQVMap = function (params) {
   jQuery(params.container).delegate(this.canvas.mode === 'svg' ? 'path' : 'shape', 'click', function (regionClickEvent) {
     if (!params.multiSelectRegion) {
       for (var keyPath in mapData.paths) {
-        map.countries[keyPath].currentFillColor = map.countries[keyPath].getOriginalFill();
+       map.countries[keyPath].currentFillColor = map.countries[keyPath].getOriginalFill();
         map.countries[keyPath].setFill(map.countries[keyPath].getOriginalFill());
       }
     }
@@ -295,17 +298,20 @@ var JQVMap = function (params) {
     jQuery(params.container).trigger(mapClickEvent, [code, mapData.paths[code].name]);
 
     currentCountry = mapData.paths[code].name;
-    if(learning === true)
-    showCountryInfo(currentCountry);
-    else{
-      checkAnswer(currentCountry);
-    }
-    if ( !mapClickEvent.isDefaultPrevented()) {
-      if (map.isSelected(code)) {
-        map.deselect(code, targetPath);
-      } else {
-        map.select(code, targetPath);
+    if(learning === true) {
+      showCountryInfo(currentCountry);
+
+      if (!mapClickEvent.isDefaultPrevented()) {
+        if (map.isSelected(code)) {
+          map.deselect(code, targetPath);
+        } else {
+          map.select(code, targetPath);
+        }
       }
+    }
+    else
+    {
+      
     }
   });
 
