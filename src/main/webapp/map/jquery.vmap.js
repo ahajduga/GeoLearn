@@ -20,12 +20,13 @@ var getAcronym = function(fullCountryName) {
       return key;
   }
 
+
 }
 var deselectCountry = function(countryName) {
   var countryShort = getAcronym(countryName);
   console.log(countryShort);
-  map.countries[countryShort].currentFillColor = '#FFFFFF';
-  map.countries[countryShort].setFill('#FFFFFF');
+  map.countries[countryShort].currentFillColor = '#000000';
+  map.countries[countryShort].setFill('#000000');
 }
 var selectCountry = function(countryName) {
   var countryShort = getAcronym(countryName);
@@ -35,13 +36,9 @@ var selectCountry = function(countryName) {
 }
 var checkAnswer = function(selectedAnswer) {
 
-  if(selectedAnswer === correctAnswer){
-    answerResult = true;
+  if(selectedAnswer === correctAnswer)
     return true;
-  } else {
-    answerResult = false;
-    return false;
-  }
+  else return false;
 }
 var showCountryInfo = function (currCountry) {
 
