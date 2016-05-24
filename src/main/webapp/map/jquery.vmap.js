@@ -47,36 +47,76 @@ var checkAnswer = function(selectedAnswer) {
 }
 var showCountryInfo = function (currCountry) {
 
-  var countryNameContainer = document.getElementById("country-name");
-  countryNameContainer.innerHTML = currCountry;
+  //var countryNameContainer = document.getElementById("country-name");
+  //countryNameContainer.innerHTML = currCountry;
+
+  document.getElementById("flag").hidden = false;
+  document.getElementById("flag_country").setAttribute("class", "phoca-flag " + currCountry);
 
   var factsContainer = document.getElementById("country-facts");
   for(var i=0;i<factsContainer.childNodes.length;i++)
     factsContainer.removeChild(factsContainer.childNodes[i]);
-  factsContainer.innerHTML = "Ciekawostki";
   var list = document.createElement("ul");
   list.className += " list-group";
 
   var facts = countryDataa[currCountry].facts;
+  var li = document.createElement("li");
+  li.className+= " list-group-item active";
+  li.innerHTML = "Ciekawostki";
+  list.appendChild(li);
   for(var i=0;i<facts.length;i++){
-    var li = document.createElement("li");
-    li.className+= " list-group-item myFont3";
+    li = document.createElement("li");
+    li.className+= " list-group-item";
     li.innerHTML = facts[i];
     list.appendChild(li);
   }
   factsContainer.appendChild(list);
 
-  var capitalContainer = document.getElementById("country-capital");
-  capitalContainer.innerHTML = "Stolica: " + countryDataa[currCountry].capital;
-  var currencyContainer = document.getElementById("country-currency");
-  currencyContainer.innerHTML = "Waluta: " + countryDataa[currCountry].currency;
-  var image = document.createElement("img");
-  image.setAttribute("width", "200px");
-  var imageParent = document.getElementById("country-flag");
-  image.src = "map/countries/" + currCountry + "/flag.png";
-  if(imageParent.childNodes.length > 0)
-    imageParent.removeChild(imageParent.childNodes[0]);
-  imageParent.appendChild(image);
+
+  var factsContainer = document.getElementById("country-base");
+  for(var i=0;i<factsContainer.childNodes.length;i++)
+    factsContainer.removeChild(factsContainer.childNodes[i]);
+  list = document.createElement("ul");
+  list.className += " list-group";
+
+  var base = countryDataa[currCountry].facts;
+  li = document.createElement("li");
+  li.className+= " list-group-item active";
+  li.innerHTML = "Kraj";
+  list.appendChild(li);
+  li = document.createElement("li");
+  li.className+= " list-group-item";
+  li.innerHTML = currCountry;
+  list.appendChild(li);
+  li = document.createElement("li");
+  li.className+= " list-group-item active";
+  li.innerHTML = "Stolica";
+  list.appendChild(li);
+  li = document.createElement("li");
+  li.className+= " list-group-item";
+  li.innerHTML = countryDataa[currCountry].capital;
+  list.appendChild(li);
+  li = document.createElement("li");
+  li.className+= " list-group-item active";
+  li.innerHTML = "Waluta";
+  list.appendChild(li);
+  li = document.createElement("li");
+  li.className+= " list-group-item";
+  li.innerHTML = countryDataa[currCountry].currency;
+  list.appendChild(li);
+  factsContainer.appendChild(list);
+
+  //var capitalContainer = document.getElementById("country-capital");
+  //capitalContainer.innerHTML = "Stolica: " + countryDataa[currCountry].capital;
+  //var currencyContainer = document.getElementById("country-currency");
+  //currencyContainer.innerHTML = "Waluta: " + countryDataa[currCountry].currency;
+  //var image = document.createElement("img");
+  //image.setAttribute("width", "200px");
+  //var imageParent = document.getElementById("country-flag");
+  //image.src = "map/countries/" + currCountry + "/flag.png";
+  //if(imageParent.childNodes.length > 0)
+  //  imageParent.removeChild(imageParent.childNodes[0]);
+  //imageParent.appendChild(image);
 
   var captionDiv = document.createElement("div");
   captionDiv.className += " carousel-caption";

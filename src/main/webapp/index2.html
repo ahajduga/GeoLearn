@@ -20,6 +20,9 @@
     <script type="text/javascript" src="ng-app/app.js"></script>
     <script type="text/javascript" src="ng-app/MapController.js"></script>
 
+    <link rel="stylesheet" href="resources/flags-style2.css" />
+    <link rel="stylesheet" href="resources/flags-data.css" />
+
     <script>
         learning = true;
         jQuery(document).ready(function () {
@@ -60,34 +63,30 @@
 <div class="container">
 
     <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron" style="height:460px;background-color: #e5f9ff;">
+    <div class="jumbotron" style="height:750px;background-color: #e5f9ff;">
         <div class="container">
             <div class="row">
                 <div id="vamap" class="col-lg-6"
                      style="background-color:blue;height:350px;border:1px solid blue;border-radius:10px"></div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div id="country-name" class="pull-left myFont1"></div>
-                        <div id="country-flag" class="pull-right" style="margin-right:100px"></div>
+                <div class="col-lg-6" style="padding-left:30px">
+
+                    <div class="row center-block">
+                        <div class="col-lg-12 center-block">
+                            <div id="flag" class="phoca-box" hidden="true">
+                                <div class="phoca-flagbox">
+                                    <span id="flag_country" class="phoca-flag ad"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row" style="margin-top:50px">
-                    <div class="col-lg-6">
-                        <div id="country-capital" class="row myFont2"></div>
-                        <div id="country-currency" class="row myFont2"></div>
-
+                        <div class="col-lg-12">
+                            <div id="country-base" class="col-lg-6 pull-left"></div>
+                            <div id="country-facts" class="col-lg-6 pull-right" style="margin-right:0px"></div>
+                        </div>
                     </div>
-                        <div id="country-facts" class="col-lg-6 myFont2">
 
-                    </div>
-                    <!--<div class="row" style="margin-top:50px">-->
-                    <!--<div id="country-capital" class="myFont2"></div>-->
-
-                    <!--</div>-->
-                    <!--<div class="row">-->
-                        <!--<div id="country-currency" class=" myFont2"></div>-->
-                        <!--</div>-->
-                </div>
             </div>
             <div class="row " >
                 <div id="carousel-example-generic" class=" col-lg-6 col-lg-offset-3 carousel slide" data-ride="carousel">
