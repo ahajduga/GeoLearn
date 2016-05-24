@@ -135,6 +135,8 @@ function getQuestion(){
         document.getElementById("flag").hidden = false;
 
         document.getElementById("flag_country").setAttribute("class", "phoca-flag " + name);
+        
+        selectCountry(name);
     } else if(question == "photo"){
 
         correctAnswer = name;

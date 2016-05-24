@@ -12,10 +12,30 @@ var correctAnswer = "";
 var answerResult;
 var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
+var map;
+var mapData;
+var getAcronym = function(fullCountryName) {
+  for (var key in mapData.paths) {
+    if(mapData.paths[key].name === fullCountryName)
+      return key;
+  }
 
 
-
+}
+var deselectCountry = function(countryName) {
+  var countryShort = getAcronym(countryName);
+  console.log(countryShort);
+  map.countries[countryShort].currentFillColor;
+  map.countries[countryShort].setFill(this.unselectedColor);
+}
+var selectCountry = function(countryName) {
+  var countryShort = getAcronym(countryName);
+  console.log(countryShort);
+  map.countries[countryShort].currentFillColor = this.hoverColor;
+  map.countries[countryShort].setFill(this.hoverColor);
+}
 var checkAnswer = function(selectedAnswer) {
+
   if(selectedAnswer === correctAnswer)
     return true;
   else return false;
@@ -150,8 +170,8 @@ ColorScale.prototype = {
 
 var JQVMap = function (params) {
   params = params || {};
-  var map = this;
-  var mapData = JQVMap.maps[params.map];
+  map = this;
+  mapData = JQVMap.maps[params.map];
   var mapPins;
 
   if( !mapData){
@@ -394,6 +414,7 @@ var JQVMap = function (params) {
   JQVMap.mapIndex++;
 };
 
+
 JQVMap.prototype = {
   transX: 0,
   transY: 0,
@@ -447,8 +468,9 @@ JQVMap.maps = {};
 
     var defaultParams = {
       map: 'world_en',
-      backgroundColor: '#227ab4',
+      backgroundColor: '#0080FF',
       color: '#FFFFFF',
+      unselectedColor: '#000000',
       hoverColor: '#FFFFFF',
       selectedColor: '#FF0000',
       scaleColors: ['#b6d6ff', '#005ace'],
@@ -475,7 +497,7 @@ JQVMap.maps = {};
       this.css({ position: 'relative', overflow: 'hidden' });
 
       map = new JQVMap(defaultParams);
-
+      
       this.data('mapObject', map);
 
       this.unbind('.jqvmap');
@@ -632,6 +654,7 @@ ColorScale.prototype.vectorToNum = function (vector) {
   return num;
 };
 
+
 JQVMap.prototype.applyTransform = function () {
   var maxTransX, maxTransY, minTransX, minTransY;
   if (this.defaultWidth * this.scale <= this.width) {
@@ -665,7 +688,7 @@ JQVMap.prototype.applyTransform = function () {
 };
 
 JQVMap.prototype.bindZoomButtons = function () {
-  var map = this;
+  map = this;
   this.container.find('.jqvmap-zoomin').click(function(){
     map.zoomIn();
   });
@@ -893,7 +916,7 @@ JQVMap.prototype.makeDraggable = function () {
 };
 
 JQVMap.prototype.placePins = function(pins, pinMode){
-  var map = this;
+  map = this;
 
   if(!pinMode || (pinMode !== 'content' && pinMode !== 'id')) {
     pinMode = 'content';
@@ -940,7 +963,7 @@ JQVMap.prototype.placePins = function(pins, pinMode){
 };
 
 JQVMap.prototype.positionPins = function(){
-  var map = this;
+  map = this;
   var pins = this.container.find('.jqvmap_pin');
   jQuery.each(pins, function(index, pinObj){
     pinObj = jQuery(pinObj);
@@ -1110,7 +1133,7 @@ JQVMap.prototype.unhighlight = function (cc, path) {
 };
 
 JQVMap.prototype.zoomIn = function () {
-  var map = this;
+  map = this;
   var sliderDelta = (jQuery('#zoom').innerHeight() - 6 * 2 - 15 * 2 - 3 * 2 - 7 - 6) / (this.zoomMaxStep - this.zoomCurStep);
 
   if (map.zoomCurStep < map.zoomMaxStep) {
@@ -1128,7 +1151,7 @@ JQVMap.prototype.zoomIn = function () {
 };
 
 JQVMap.prototype.zoomOut = function () {
-  var map = this;
+  map = this;
   var sliderDelta = (jQuery('#zoom').innerHeight() - 6 * 2 - 15 * 2 - 3 * 2 - 7 - 6) / (this.zoomMaxStep - this.zoomCurStep);
 
   if (map.zoomCurStep > 1) {
