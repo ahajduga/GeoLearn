@@ -78,18 +78,19 @@ var showCountryInfo = function (currCountry) {
     imageParent.removeChild(imageParent.childNodes[0]);
   imageParent.appendChild(image);
 
+
+  var imageParent = document.getElementById("country-photo1");
+  imageParent.innerHTML = " ";
+
   var captionDiv = document.createElement("div");
   captionDiv.className += " carousel-caption";
   captionDiv.innerHTML = "<h4>" + countryDataa[currCountry].photos.photo1 + "</h4>";
   var image = document.createElement("img");
   image.setAttribute("width", "200px");
-  var imageParent = document.getElementById("country-photo1");
   image.className += " center-block";
   image.setAttribute("title", countryDataa[currCountry].photos.photo1);
   image.src = "map/countries/" + currCountry + "/photo1.jpg";
 
-  for(var i=0;i<imageParent.childNodes.length+1;i++)
-    imageParent.removeChild(imageParent.childNodes[i]);
   imageParent.appendChild(image);
   imageParent.appendChild(captionDiv);
   var captionDiv = document.createElement("div");
@@ -102,8 +103,7 @@ var showCountryInfo = function (currCountry) {
 
   image.setAttribute("title", countryDataa[currCountry].photos.photo2);
   image.src = "map/countries/" + currCountry + "/photo2.jpg";
-  for(var i=0;i<imageParent.childNodes.length+1;i++)
-    imageParent.removeChild(imageParent.childNodes[i]);
+  imageParent.innerHTML = " ";
   imageParent.appendChild(image);
   imageParent.appendChild(captionDiv);
   var captionDiv = document.createElement("div");
@@ -116,8 +116,7 @@ var showCountryInfo = function (currCountry) {
   var imageParent = document.getElementById("country-photo3");
   image.src = "map/countries/" + currCountry + "/photo3.jpg";
 
-  for(var i=0;i<imageParent.childNodes.length+1;i++)
-    imageParent.removeChild(imageParent.childNodes[i]);
+  imageParent.innerHTML = " ";
 
   imageParent.appendChild(image);
   imageParent.appendChild(captionDiv);
@@ -130,8 +129,7 @@ var showCountryInfo = function (currCountry) {
   var imageParent = document.getElementById("country-photo4");
   image.setAttribute("title", countryDataa[currCountry].photos.photo4);
   image.src = "map/countries/" + currCountry + "/photo4.jpg";
-  for(var i=0;i<imageParent.childNodes.length+1;i++)
-    imageParent.removeChild(imageParent.childNodes[i]);
+  imageParent.innerHTML = " ";
   imageParent.appendChild(image);
   imageParent.appendChild(captionDiv);
 };
