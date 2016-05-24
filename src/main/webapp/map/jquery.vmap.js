@@ -15,7 +15,11 @@ var countryDataa = JSON.parse(countryData);
 
 
 
-
+var checkAnswer = function(selectedAnswer) {
+  if(selectedAnswer === correctAnswer)
+    return true;
+  else return false;
+}
 var showCountryInfo = function (currCountry) {
 
   var countryNameContainer = document.getElementById("country-name");
@@ -173,8 +177,13 @@ var JQVMap = function (params) {
 
   this.resize();
 
-  var checkAnswer = function(selectedAnswer) {
 
+
+  var getAcronym = function(fullCountryName) {
+    for (var key in mapData.paths) {
+      if(mapData.paths[key].name === fullCountryName)
+      console.log(key);
+    }
 
   }
   var selectCountry = function(countryShort) {
