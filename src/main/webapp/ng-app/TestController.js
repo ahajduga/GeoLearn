@@ -51,10 +51,13 @@ function submitAnswer(){
         }
         deselectCountry(name);
     } else if(question == "flag" || question == "photo") {
-        checkAnswer();
         if(answerResult){
             points = points + 1;
+            answerResult = false;
+            currentCountry = "";
+            correctAnswer = "";
         }
+        deselectCountry(userSelectedCountry);
     }
 
     if(q_number==q_count){

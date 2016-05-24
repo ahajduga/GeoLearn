@@ -50,6 +50,8 @@ var showCountryInfo = function (currCountry) {
   //var countryNameContainer = document.getElementById("country-name");
   //countryNameContainer.innerHTML = currCountry;
 
+  document.getElementById("gallery").hidden = false;
+
   document.getElementById("flag").hidden = false;
   document.getElementById("flag_country").setAttribute("class", "phoca-flag " + currCountry);
 
@@ -132,7 +134,7 @@ var showCountryInfo = function (currCountry) {
   image.src = "map/countries/" + currCountry + "/photo1.jpg";
 
   imageParent.appendChild(image);
-  imageParent.appendChild(captionDiv);
+  //imageParent.appendChild(captionDiv);
   var captionDiv = document.createElement("div");
   captionDiv.className += " carousel-caption";
   captionDiv.innerHTML = "<h4>" + countryDataa[currCountry].photos.photo2 + "</h4>";
@@ -145,7 +147,7 @@ var showCountryInfo = function (currCountry) {
   image.src = "map/countries/" + currCountry + "/photo2.jpg";
   imageParent.innerHTML = " ";
   imageParent.appendChild(image);
-  imageParent.appendChild(captionDiv);
+  //imageParent.appendChild(captionDiv);
   var captionDiv = document.createElement("div");
   captionDiv.className += " carousel-caption";
   captionDiv.innerHTML = "<h4>" + countryDataa[currCountry].photos.photo3 + "</h4>";
@@ -159,7 +161,7 @@ var showCountryInfo = function (currCountry) {
   imageParent.innerHTML = " ";
 
   imageParent.appendChild(image);
-  imageParent.appendChild(captionDiv);
+  //imageParent.appendChild(captionDiv);
   var captionDiv = document.createElement("div");
   captionDiv.className += " carousel-caption";
   captionDiv.innerHTML = "<h4>" + countryDataa[currCountry].photos.photo4 + "</h4>";
@@ -171,7 +173,7 @@ var showCountryInfo = function (currCountry) {
   image.src = "map/countries/" + currCountry + "/photo4.jpg";
   imageParent.innerHTML = " ";
   imageParent.appendChild(image);
-  imageParent.appendChild(captionDiv);
+  //imageParent.appendChild(captionDiv);
 };
 var VectorCanvas = function (width, height, params) {
   this.mode = window.SVGAngle ? 'svg' : 'vml';
