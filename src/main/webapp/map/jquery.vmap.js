@@ -25,14 +25,14 @@ var getAcronym = function(fullCountryName) {
 var deselectCountry = function(countryName) {
   var countryShort = getAcronym(countryName);
   console.log(countryShort);
-  map.countries[countryShort].currentFillColor;
-  map.countries[countryShort].setFill(this.unselectedColor);
+  map.countries[countryShort].currentFillColor = '#000000';
+  map.countries[countryShort].setFill('#000000');
 }
 var selectCountry = function(countryName) {
   var countryShort = getAcronym(countryName);
   console.log(countryShort);
-  map.countries[countryShort].currentFillColor = this.hoverColor;
-  map.countries[countryShort].setFill(this.hoverColor);
+  map.countries[countryShort].currentFillColor = '#00FF00';
+  map.countries[countryShort].setFill('#00FF00');
 }
 var checkAnswer = function(selectedAnswer) {
 
