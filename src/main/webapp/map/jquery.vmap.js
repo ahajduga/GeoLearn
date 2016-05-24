@@ -1067,8 +1067,8 @@ JQVMap.prototype.select = function (cc, path) {
 
     jQuery(this.container).trigger('regionSelect.jqvmap', [cc]);
     if (this.selectedColor && path) {
-      path.currentFillColor = this.selectedColor;
-      path.setFill(this.selectedColor);
+      path.currentFillColor = '#00FF00';
+      path.setFill('#00FF00');
     }
   }
 };
