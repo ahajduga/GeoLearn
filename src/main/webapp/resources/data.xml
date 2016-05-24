@@ -60,4 +60,109 @@
         <capital>Helsinki</capital>
         <currency>euro</currency>
     </country>
+    <country>
+        <name>Francja</name>
+        <capital>Paryż</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Grecja</name>
+        <capital>Ateny</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Hiszpania</name>
+        <capital>Madryt</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Holandia</name>
+        <capital>Amsterdam</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Irlandia</name>
+        <capital>Dublin</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Islandia</name>
+        <capital>Reykjavik</capital>
+        <currency>korona islandzka</currency>
+    </country>
+    <country>
+        <name>Lichtenstein</name>
+        <capital>Vaduz</capital>
+        <currency>frank szwajcarski</currency>
+    </country>
+    <country>
+        <name>Litwa</name>
+        <capital>Wilno</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Luksemburg</name>
+        <capital>Luksemburg</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Łotwa</name>
+        <capital>Ryga</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Malta</name>
+        <capital>Valletta</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Norwegia</name>
+        <capital>Oslo</capital>
+        <currency>korona norweska</currency>
+    </country>
+    <country>
+        <name>Portugalia</name>
+        <capital>Lizbona</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Rumunia</name>
+        <capital>Bukareszt</capital>
+        <currency>lej</currency>
+    </country>
+    <country>
+        <name>Słowacja</name>
+        <capital>Bratysława</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Słowenia</name>
+        <capital>Lublana</capital>
+        <currency>euro</currency>
+    </country>
+    <country>
+        <name>Szwajcaria</name>
+        <capital>Berno</capital>
+        <currency>frank szwajcarski</currency>
+    </country>
+    <country>
+        <name>Szwecja</name>
+        <capital>Sztokholm</capital>
+        <currency>korona szwedzka</currency>
+    </country>
+    <country>
+        <name>Węgry</name>
+        <capital>Budapeszt</capital>
+        <currency>forint węgierski</currency>
+    </country>
+    <country>
+        <name>Wielka Brytania</name>
+        <capital>Londyn</capital>
+        <currency>funt szterling</currency>
+    </country>
+    <country>
+        <name>Włochy</name>
+        <capital>Rzym</capital>
+        <currency>euro</currency>
+    </country>
 </countries>

@@ -6,6 +6,7 @@ var rand_opt = null;
 
 var countries = null;
 var c_count = null;
+var name;
 
 function readData(){
     var Connect = new XMLHttpRequest();
@@ -48,6 +49,7 @@ function submitAnswer(){
         if (document.getElementById("opt" + rand_opt + "r").checked) {
             points = points + 1;
         }
+        deselectCountry(name);
     } else if(question == "flag" || question == "photo") {
         if(answerResult){
             points = points + 1;
@@ -79,7 +81,7 @@ function getQuestion(){
 
     var rand_country = Math.floor(Math.random() * c_count);
     var country = countries.children[rand_country];
-    var name = country.getElementsByTagName("name")[0].textContent.toString();
+    name = country.getElementsByTagName("name")[0].textContent.toString();
     var capital = country.getElementsByTagName("capital")[0].textContent.toString();
     var currency = country.getElementsByTagName("currency")[0].textContent.toString();
     document.getElementById("country").innerHTML = "Kraj: " + name;
@@ -111,19 +113,36 @@ function getQuestion(){
         document.getElementById("flag").hidden = true;
         document.getElementById("photo").hidden = true;
 
+        var answer = country.getElementsByTagName(question)[0].textContent.toString();
+        var temp = answer;
+
         rand_country = Math.floor(Math.random() * c_count);
-        document.getElementById("opt1").innerHTML
-            = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+        while(temp == answer){
+            rand_country = Math.floor(Math.random() * c_count);
+            temp = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+        }
+        var answer1 = temp;
+        document.getElementById("opt1").innerHTML = temp;
+
         rand_country = Math.floor(Math.random() * c_count);
-        document.getElementById("opt2").innerHTML
-            = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+        while(temp == answer || temp == answer1){
+            rand_country = Math.floor(Math.random() * c_count);
+            temp = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+        }
+        var answer2 = temp;
+        document.getElementById("opt2").innerHTML = temp;
+
         rand_country = Math.floor(Math.random() * c_count);
-        document.getElementById("opt3").innerHTML
-            = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+        while(temp == answer || temp == answer1 || temp == answer2){
+            rand_country = Math.floor(Math.random() * c_count);
+            temp = countries.children[rand_country].getElementsByTagName(question)[0].textContent.toString();
+        }
+        document.getElementById("opt3").innerHTML = temp;
 
         rand_opt = Math.floor((Math.random() * 3) + 1);
-        document.getElementById("opt" + rand_opt).innerHTML
-            = country.getElementsByTagName(question)[0].textContent.toString();
+        document.getElementById("opt" + rand_opt).innerHTML = answer;
+
+        selectCountry(name);
 
     } else if(question == "flag"){
 
@@ -135,8 +154,7 @@ function getQuestion(){
         document.getElementById("flag").hidden = false;
 
         document.getElementById("flag_country").setAttribute("class", "phoca-flag " + name);
-        
-        selectCountry(name);
+
     } else if(question == "photo"){
 
         correctAnswer = name;
