@@ -20,13 +20,12 @@ var getAcronym = function(fullCountryName) {
       return key;
   }
 
-
 }
 var deselectCountry = function(countryName) {
   var countryShort = getAcronym(countryName);
   console.log(countryShort);
-  map.countries[countryShort].currentFillColor = '#000000';
-  map.countries[countryShort].setFill('#000000');
+  map.countries[countryShort].currentFillColor = '#FFFFFF';
+  map.countries[countryShort].setFill('#FFFFFF');
 }
 var selectCountry = function(countryName) {
   var countryShort = getAcronym(countryName);
@@ -36,9 +35,13 @@ var selectCountry = function(countryName) {
 }
 var checkAnswer = function(selectedAnswer) {
 
-  if(selectedAnswer === correctAnswer)
+  if(selectedAnswer === correctAnswer){
+    answerResult = true;
     return true;
-  else return false;
+  } else {
+    answerResult = false;
+    return false;
+  }
 }
 var showCountryInfo = function (currCountry) {
 
@@ -61,17 +64,17 @@ var showCountryInfo = function (currCountry) {
   }
   factsContainer.appendChild(list);
 
-    var capitalContainer = document.getElementById("country-capital");
-    capitalContainer.innerHTML = "Stolica: " + countryDataa[currCountry].capital;
+  var capitalContainer = document.getElementById("country-capital");
+  capitalContainer.innerHTML = "Stolica: " + countryDataa[currCountry].capital;
   var currencyContainer = document.getElementById("country-currency");
   currencyContainer.innerHTML = "Waluta: " + countryDataa[currCountry].currency;
-   var image = document.createElement("img");
-   image.setAttribute("width", "200px");
-   var imageParent = document.getElementById("country-flag");
-   image.src = "map/countries/" + currCountry + "/flag.png";
-   if(imageParent.childNodes.length > 0)
-       imageParent.removeChild(imageParent.childNodes[0]);
-   imageParent.appendChild(image);
+  var image = document.createElement("img");
+  image.setAttribute("width", "200px");
+  var imageParent = document.getElementById("country-flag");
+  image.src = "map/countries/" + currCountry + "/flag.png";
+  if(imageParent.childNodes.length > 0)
+    imageParent.removeChild(imageParent.childNodes[0]);
+  imageParent.appendChild(image);
 
   var captionDiv = document.createElement("div");
   captionDiv.className += " carousel-caption";
@@ -83,8 +86,8 @@ var showCountryInfo = function (currCountry) {
   image.setAttribute("title", countryDataa[currCountry].photos.photo1);
   image.src = "map/countries/" + currCountry + "/photo1.jpg";
 
-    for(var i=0;i<imageParent.childNodes.length+1;i++)
-      imageParent.removeChild(imageParent.childNodes[i]);
+  for(var i=0;i<imageParent.childNodes.length+1;i++)
+    imageParent.removeChild(imageParent.childNodes[i]);
   imageParent.appendChild(image);
   imageParent.appendChild(captionDiv);
   var captionDiv = document.createElement("div");
@@ -134,10 +137,10 @@ var VectorCanvas = function (width, height, params) {
   this.mode = window.SVGAngle ? 'svg' : 'vml';
   this.params = params;
 
-    this.createSvgNode = function (nodeName) {
-      return document.createElementNS(this.svgns, nodeName);
-    };
-    this.canvas = this.createSvgNode('svg');
+  this.createSvgNode = function (nodeName) {
+    return document.createElementNS(this.svgns, nodeName);
+  };
+  this.canvas = this.createSvgNode('svg');
   this.setSize(width, height);
 };
 
@@ -262,7 +265,7 @@ var JQVMap = function (params) {
     map.countries[key] = path;
 
 
-      path.setAttribute('class', 'jvectormap-region');
+    path.setAttribute('class', 'jvectormap-region');
 
 
     jQuery(this.rootGroup).append(path);
@@ -304,7 +307,7 @@ var JQVMap = function (params) {
   jQuery(params.container).delegate(this.canvas.mode === 'svg' ? 'path' : 'shape', 'click', function (regionClickEvent) {
     if (!params.multiSelectRegion) {
       for (var keyPath in mapData.paths) {
-       map.countries[keyPath].currentFillColor = map.countries[keyPath].getOriginalFill();
+        map.countries[keyPath].currentFillColor = map.countries[keyPath].getOriginalFill();
         map.countries[keyPath].setFill(map.countries[keyPath].getOriginalFill());
       }
     }
@@ -490,7 +493,7 @@ JQVMap.maps = {};
     } else if (options === 'set' && apiParams[arguments[1]]) {
       map['set' + arguments[1].charAt(0).toUpperCase() + arguments[1].substr(1)].apply(map, Array.prototype.slice.call(arguments, 2));
     } else if (typeof options === 'string' &&
-      typeof map[options] === 'function') {
+        typeof map[options] === 'function') {
       return map[options].apply(map, Array.prototype.slice.call(arguments, 1));
     } else {
       jQuery.extend(defaultParams, options);
@@ -498,7 +501,7 @@ JQVMap.maps = {};
       this.css({ position: 'relative', overflow: 'hidden' });
 
       map = new JQVMap(defaultParams);
-      
+
       this.data('mapObject', map);
 
       this.unbind('.jqvmap');
@@ -866,14 +869,14 @@ JQVMap.prototype.makeDraggable = function () {
 
       if (lastTouchCount === 2) {
         scale = Math.sqrt(
-            Math.pow(touches[0].pageX - touches[1].pageX, 2) +
-            Math.pow(touches[0].pageY - touches[1].pageY, 2)
-          ) / touchStartDistance;
+                Math.pow(touches[0].pageX - touches[1].pageX, 2) +
+                Math.pow(touches[0].pageY - touches[1].pageY, 2)
+            ) / touchStartDistance;
 
         self.setScale(
-          touchStartScale * scale,
-          touchCenterX,
-          touchCenterY
+            touchStartScale * scale,
+            touchCenterX,
+            touchCenterY
         );
 
         e.preventDefault();
@@ -898,8 +901,8 @@ JQVMap.prototype.makeDraggable = function () {
         touchStartScale = self.scale;
 
         touchStartDistance = Math.sqrt(
-          Math.pow(touches[0].pageX - touches[1].pageX, 2) +
-          Math.pow(touches[0].pageY - touches[1].pageY, 2)
+            Math.pow(touches[0].pageX - touches[1].pageX, 2) +
+            Math.pow(touches[0].pageY - touches[1].pageY, 2)
         );
       }
     }
@@ -958,8 +961,8 @@ JQVMap.prototype.placePins = function(pins, pinMode){
       map.positionPins();
     };
     this.container.bind('zoomIn', positionFix)
-      .bind('zoomOut', positionFix)
-      .bind('drag', positionFix);
+        .bind('zoomOut', positionFix)
+        .bind('drag', positionFix);
   }
 };
 
@@ -977,7 +980,7 @@ JQVMap.prototype.positionPins = function(){
     var scale = map.scale;
 
     var left = position.left + (bbox.width / 2) * scale - pinObj.width() / 2,
-      top = position.top + (bbox.height / 2) * scale - pinObj.height() / 2;
+        top = position.top + (bbox.height / 2) * scale - pinObj.height() / 2;
 
     pinObj.css('left', left).css('top', top);
   });
@@ -1089,8 +1092,8 @@ JQVMap.prototype.setScaleColors = function (colors) {
 
 JQVMap.prototype.setValues = function (values) {
   var max = 0,
-    min = Number.MAX_VALUE,
-    val;
+      min = Number.MAX_VALUE,
+      val;
 
   for (var cc in values) {
     cc = cc.toLowerCase();
