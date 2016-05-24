@@ -10,6 +10,7 @@
 var learning = true;
 var correctAnswer = "";
 var answerResult;
+var userSelectedCountry;
 var currentCountry = "";
 var countryDataa = JSON.parse(countryData);
 var map;
@@ -28,6 +29,7 @@ var deselectCountry = function(countryName) {
   map.countries[countryShort].setFill('#FFFFFF');
 }
 var selectCountry = function(countryName) {
+  userSelectedCountry = countryName;
   var countryShort = getAcronym(countryName);
   console.log(countryShort);
   map.countries[countryShort].currentFillColor = '#00FF00';
@@ -209,12 +211,6 @@ var JQVMap = function (params) {
     }
 
 
-  }
-  var selectCountry = function(countryName) {
-    var countryShort = getAcronym(countryName);
-    console.log(countryShort);
-    map.countries[countryShort].currentFillColor = this.hoverColor;
-    map.countries[countryShort].setFill(this.hoverColor);
   }
   jQuery(window).resize(function () {
     var newWidth = params.container.width();
